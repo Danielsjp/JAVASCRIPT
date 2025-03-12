@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS en navegador</title>
+    <style>
+    </style>
+</head>
+<body>
+    
+
+    <script>
+        numero = 1; texto = "hola";
+        var numero2 = 2;
+        // el let tiene ambito local
+        // se podria reusar otra vez fuera 
+        let texto2 = "adios"; 
+        // para crear una constante
+        const PI = 3.1416
+        // PI = 6.28
+
+        console.log(PI)
+        console.log(typeof(numero2));
+        console.log(typeof texto)
+
+        // alert("Soy un alert")
+        let diaSemana = prompt("¿Que día es hoy?")
+        // alert("Me has dicho" + " " + diaSemana)
+        alert(`Me has dicho ${diaSemana}`)
+        let respuesta = confirm("¿Está lloviendo?")
+        alert(respuesta)
+
+        // Los booleanos son true y false
+
+    </script>
+
+</body>
+</html>
