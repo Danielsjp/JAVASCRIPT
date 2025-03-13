@@ -15,7 +15,12 @@ for (letra of palabra){
 }
 
 if (contador>0) console.log("La letra: "+ letraBuscada +" aparece "+contador+" veces");
+
 else
 {
     console.log("La letra: "+ letraBuscada +" No aparece "+ "en la palabra"+" "+palabra);
 }
+
+//test salida con ``
+
+console.log(`La letra ${contador}`);
