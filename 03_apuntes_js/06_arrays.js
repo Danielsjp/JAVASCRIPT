@@ -42,3 +42,14 @@ console.log(variable);
 console.log(frutas)
 let extraccion = frutas.slice(1,3)
 console.log(extraccion);
+
+// Ordenar el array y guardarlo en una copia
+
+let frutasOrdenadas = frutas.toSorted();
+
+//ordenar el array original
+frutas.sort()
+console.log(frutas);
+
+//destructuring
+let [fruta1, fruta2, fruta3, fruta4]
