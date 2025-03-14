@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <h1 onclick="cambiarH1()">Soy el título principal</h1>
+    <h2>Soy el título secundario</h2>
+    <h3>Soy un h3</h3>
+    <!-- p*5{$} -->
+    <p>1</p>
+    <p>2</p>
+    <p id="parrafo_3">3</p>
+    <p class="newBackground">4</p>
+    <p class="newBackground">5</p>
+    <div>
+        <p>Soy un párrafo dentro del div</p>
+    </div>
+
+    <script>
+
+        let h1 = document.querySelector("h1")
+        console.log(h1.textContent);
+        // h1.textContent = " He cambiado el <span style='color:red'>titulo</span>"
+        h1.innerHTML = "He cambiado el <span style='color:red'>titulo</span>"
+        
+        function cambiarH1() {
+            if (h1.style.color == "white") {
+                h1.style.color = "black"
+            }
+            else {
+            h1.style.backgroundColor = "yellow";
+            h1.style.color = "white"
+                }
+        }
+
+        console.log(h1.textContent);
+
+
+    </script>
+</body>
+</html>
