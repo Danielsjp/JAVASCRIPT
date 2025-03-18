@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etiquetas de formulario</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        main {
+            max-width: 80%;
+            margin: 5% auto;
+        }
+
+        div {
+            margin: 3% ;
+        }
+
+        button, input[type="button"] {
+            padding: 5px 10px;
+        }
+
+        input {
+
+            padding: 5px 10px;
+
+        }
+
+        label {
+            display: block;
+        }
+
+        input[type="radio"] + label
+        {
+            display: inline;
+            margin-left: 3px;
+
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Etiquetas de formulario</h1>
+        <form action="#" id="myForm">
+            <fieldset>
+            <legend>
+                Etiquetas más habituales
+            </legend>
+            <div>
+            <label for="nombre">Nombre: </label>
+            <input 
+            type="text" 
+            name="nombre" 
+            id="nombre" 
+            placeholder="Escribe aqui tu nombre"
+            autofocus
+            required
+            minlength="5"
+            maxlength="10"
+            pattern="[A-Za-z]{5,10}"
+            title="Escribe tu nombre (5 caracteres mínimo y 10 máximo)"
+            
+            >
+
+            <label for="password">Contraseña : </label>
+            <input type="password" name="password" id="password">
+            <label for="numero">Escribe tu edad</label>
+            <input type="number" name="number" id="number" min="0" max="99">
+            </div>
+            <div>
+                <input type="button" value="Enviar por id" id="Enviar_1">
+                <button type="submit">Enviar por form</button>
+                <button type="reset">RESET</button>
+                <input type="hidden" name="">
+            </div>
+            </fieldset>
+            <fieldset>
+                <legend>Datos Personales</legend>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email">
+                <label for="tel">Telefono:</label>
+                <input type="tel" name="tel" id="tel">
+                <label for="url">URL</label>
+                <input type="url" name="url" id="url">
+            </fieldset>
+
+            <fieldset>
+
+                <legend>Radio Buttons</legend>
+                <input type="radio" name="colores" id="rojo"><label for="rojo">Color Rojo</label>
+                <input type="radio" name="colores" id="azul"><label for="rojo">Azul</label>
+            </fieldset>
+        </form>
+
+    </main>
+    <div id="resultadoFormulario">
+
+
+    </div>
+    <script>
+
+        //FORMA 1 de obtener datos de un formulario por id
+        // nodo del div donde esribiremos el resultado
+        const resultadoFormulario = document.getElementById("resultadoFormulario")
+        // nodo del input: button
+        const enviar1 = document.getElementById("Enviar_1")
+        // nodo del input: nombre
+
+        const password = document.getElementById("password")
+        const nombre = document.getElementById("nombre")
+
+        enviar1.addEventListener("click", () => {
+            let valorDelInput = nombre.value
+            let valorDelPassword = password.value
+            resultadoFormulario.textContent = `${valorDelInput} ${valorDelPassword}`
+        })
+
+        //FORMA 2
+        resultadoFormulario.textContent = ""
+        const myForm = document.querySelector('#myForm')
+        myForm.addEventListener("submit", (event) => {
+        //   alert(myForm['nombre'].value)
+            event.preventDefault()
+            resultadoFormulario.textContent += myForm['nombre'].value + " "
+            resultadoFormulario.textContent += myForm['password'].value + " "
+            resultadoFormulario.textContent += myForm['number'].value + " "
+        })
+
+    </script>
+</body>
+</html>
