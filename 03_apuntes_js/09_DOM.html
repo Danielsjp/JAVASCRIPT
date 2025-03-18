@@ -18,26 +18,103 @@
     <div>
         <p>Soy un párrafo dentro del div</p>
     </div>
-
     <script>
 
+        //
         let h1 = document.querySelector("h1")
         console.log(h1.textContent);
         // h1.textContent = " He cambiado el <span style='color:red'>titulo</span>"
         h1.innerHTML = "He cambiado el <span style='color:red'>titulo</span>"
         
+        // function cambiarH1() {
+        //     if (h1.style.color == "white") {
+        //         h1.style.color = "black"
+        //         h1.style.backgroundColor = "white";
+        //     }
+        //     else 
+        //     {
+        //     h1.style.backgroundColor = "yellow";
+        //     h1.style.color = "white"
+        //     }
+        // }
+
+        // let ponteAzul = true
+        // function cambiarH1() {
+        //    if(ponteAzul)
+        //    {
+        //     h1.style.backgroundColor = "darkblue"
+        //     h1.style.color = "white"
+        //     ponteAzul = false
+        //    }
+        //    else {
+        //     h1.style.backgroundColor = "white"
+        //     h1.style.color = "black"
+        //     ponteAzul = true
+        //    }
+        // }
+        let color = "ninguno" 
         function cambiarH1() {
-            if (h1.style.color == "white") {
-                h1.style.color = "black"
-            }
-            else {
-            h1.style.backgroundColor = "yellow";
-            h1.style.color = "white"
-                }
+           if(color == "ninguno")
+           {
+            h1.style.backgroundColor = "darkblue"
+            h1.style.color = "black"
+            color = "azul"
+           }
+           else if (color == "azul"){
+            h1.style.backgroundColor = "white"
+            h1.style.color = "black"
+            color = "white"
+           }
+           else if (color == "white"){
+            h1.style.backgroundColor = "darkred"
+            h1.style.color = "black"
+            color = "ninguno"
+        }
+    }
+        console.log(h1.textContent);
+        // sistema 2
+        // const h2_bis = document.getElementsByTagName('h2') " NO SE ACONSEJA
+        const h2 = document.querySelector("h2")
+        h2.onclick = () => {
+            h2.style.fontFamily = "Arial"
+            h2.style.fontSize = "48px"
         }
 
-        console.log(h1.textContent);
+        // sistema3
 
+        const h3 = document.querySelector("h3")
+        h3.addEventListener("click", () => {
+            h3.innerText = "Hola Pepito"
+            h2.style.color = "darkgreen"
+        })
+
+        const parrafos = document.querySelectorAll("p")
+        console.log(parrafos);
+
+        for (let i = 0; i <parrafos.length; i++)
+        {
+            parrafos[i].addEventListener("click", () => {
+                parrafos[i].style.display = "inline"
+                parrafos[i].style.border = "2px solid blue"
+            })
+        }
+
+      const nb = document.querySelectorAll(".newBackground")  
+        
+      for (let i = 0; i <nb.length; i++)
+        {
+                nb[i].addEventListener("mouseover", () => {
+                nb[i].style.display = "inline"
+                nb[i].style.border = "2px solid red"
+            })
+        }
+
+        const div = document.querySelectorAll("div")
+        div.addEventListener("mouseover", () => {
+            let codigo = "<p onclick='cambiarH1()'>Hemos machacado el div</p>"
+            codigo += ""
+            div.innerHTML = codigo
+        })
 
     </script>
 </body>
