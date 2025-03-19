@@ -40,6 +40,10 @@
             margin-left: 3px;
 
         }
+
+        textarea {
+            width: 80%;
+        }
     </style>
 </head>
 <body>
@@ -91,10 +95,76 @@
             <fieldset>
 
                 <legend>Radio Buttons</legend>
-                <input type="radio" name="colores" id="rojo" checked><label for="rojo">Color Rojo</label>
-                <input type="radio" name="colores" id="azul"><label for="azul">COlor Azul</label>
-                <input type="radio" name="colores" id="verde"><label for="verde">Color Verde</label>
+                <input type="radio" name="colores" id="rojo" value="rojo" checked><label for="rojo">Color Rojo</label>
+                <input type="radio" name="colores" id="azul" value="azul"><label for="azul">Color Azul</label>
+                <input type="radio" name="colores" id="verde" value="verde"><label for="verde">Color Verde</label>
+          
+
+                <legend>Checkbox</legend>
+                <div><input type="checkbox" name="lectura" id="condiciones"><label for="lectura">He leído las condiciones ...</label>
+                    <input type="checkbox" name="condiciones" id="condiciones"><label for="condiciones">Acepto las condiciones</label>
+                </div>
             </fieldset>
+            <fieldset>
+                <legend>Fechas</legend>
+                <div>
+                    <label for="date">Date año mes dia</label>
+                    <input type="date" name="date" id="date">
+                </div>
+                <div>
+                    <label for="datetime-local">datetime-local año mes dia hora minuto</label>
+                    <input type="datetime-local" name="datetime-local" id="datetime-local">
+                </div>
+                <div>
+                    <label for="time">Time (horas)</label>
+                    <input type="time" name="time" id="time">
+                </div>
+                <div>
+                    <label for="week">week</label>
+                    <input type="week" name="week" id="week">
+                </div>
+                <div>
+                    <label for="month">Mes</label>
+                    <input type="month" name="mont" id="month">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Varios</legend>
+            <label for="color">color</label>
+            <input type="color" name="color" id="color">
+            <label for="file" name="file"></label>
+            <input type="file" name="file" id="file" multiple>
+            <label for="search">search</label>
+            <input type="search" name="search" id="search">
+            <label for="range">range</label>
+            <input type="range" name="range" id="range" min="1" max="5">
+            </fieldset>
+            <fieldset>
+                <legend>Text area</legend>
+                <label for="textarea">Escribe tu mensaje</label>
+                <textarea name="textarea" id="textarea" cols="30" rows="10">Escribe algo</textarea>
+            </fieldset>
+            <fieldset>Listas de elementos
+            <div>
+                <label for="modelos">Elige el modelo</label>
+                <select name="modelos" id="modelos">
+                    <option value="Audi">Audi</option>
+                    <option value="Audi">BMW</option>
+                    <option value="Audi">Seat</option>
+                    <option value="Audi">Ford</option>
+                </select>
+            </div>
+            <div>
+                <label for="usuarios">Busca al usuario</label>
+                <input type="text" id="usuarios" list="usuarios">
+                <datalist id="usuarios">
+                    <option value="Pol"></option>
+                    <option value="Pere"></option>
+                    <option value="Anna"></option>
+                </datalist>
+            </div>
+        </fieldset>
         </form>
 
     </main>
@@ -129,6 +199,7 @@
             resultadoFormulario.textContent += myForm['nombre'].value + " "
             resultadoFormulario.textContent += myForm['password'].value + " "
             resultadoFormulario.textContent += myForm['number'].value + " "
+            alert(myForm['colores'].value)
         })
 
     </script>
