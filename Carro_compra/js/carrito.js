@@ -28,14 +28,17 @@ Recuerda la importancia comentar con detalle el código.
  let totalCompra = 0;
  let productosCarrito = [];
 
- const pomelo = document.querySelector('#pomelo')
+const pomelo = document.querySelector('#pomelo')
 //  const totalCompraDiv = document.getElementById("totalCompra");
 const preuFinal = document.getElementById("preuFinal");
 const carrito = document.querySelector('#carrito')
 const eliminar = document.getElementById("miSpan")
 
 function comprarProducto(producto){
-    let kilos = prompt("cuantos kilos?")
+    let kilos = parseInt(prompt("cuantos kilos?"))
+    
+    if (Number.isInteger(kilos) && kilos>0)
+    {
     // Seleccionamos el elemento con id 'pomelo'
     const textoProducto = producto.querySelector("p").textContent;
     const nombreProducto = textoProducto.split(":")[0].trim();
@@ -56,6 +59,12 @@ function comprarProducto(producto){
 
     // Actualizamos la vista del carrito
     actualizarCarrito();
+        
+    }
+    else
+    {
+        alert("INTRODUCE UN NUMERO MELON")
+    }
 }
 
 
