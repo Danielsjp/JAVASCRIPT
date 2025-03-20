@@ -16,6 +16,29 @@ nombreForm.addEventListener("change", () => {
 })
 
 // control de la fecha
+
+let today = new Date()
+let tomorrow = new Date(today)
+tomorrow.setDate(tomorrow.getDate() + 1)
+today = today.toISOString().split('T')[0]
+// console.log(today);
+
+tomorrow = tomorrow.toISOString().split('T')[0]
+
+const entrada = document.querySelector('#entrada')
+entrada.setAttribute("value", today)
+entrada.setAttribute("min", today)
+
+const salida = document.querySelector('#salida')
+entrada.setAttribute("value", tomorrow)
+entrada.setAttribute("min", tomorow)
+
+entrada.addEventListener('change', () => {
+
+    salida =  new Date(entrada.value)
+
+})
+
 // ventana emergente
 // obtener los datos del formulario
 

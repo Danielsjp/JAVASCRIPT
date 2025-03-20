@@ -18,7 +18,9 @@ cabriolet.addEventListener("click", () => {
     let mensajeUsuario = `${dias} días de alquiler x ${precio}€/día = <span class="bold">${alquilerTotal.toFixed(2)}€</span>`
     alquiler.innerHTML = mensajeUsuario
 } )
+
 let PrecioFinal = 0
+
 function alquilarVehiculo(precioDia) {
     let dias = prompt("¿Días de alquiler?")
     importe.style.display = "block"
