@@ -26,11 +26,13 @@ Recuerda la importancia comentar con detalle el código.
  Lo importante es el cálculo, no los estilos css
  */
  let totalCompra = 0;
+ let productosCarrito = [];
+
  const pomelo = document.querySelector('#pomelo')
 //  const totalCompraDiv = document.getElementById("totalCompra");
 const preuFinal = document.getElementById("preuFinal");
 const carrito = document.querySelector('#carrito')
-
+const eliminar = document.getElementById("miSpan")
 
 function comprarProducto(producto){
     let kilos = prompt("cuantos kilos?")
@@ -41,16 +43,48 @@ function comprarProducto(producto){
     const precioProducto2 = precioProducto1.split(":")[1].trim();
     let total = (parseFloat(precioProducto2) * parseInt(kilos)).toFixed(2);
     // const carrito = document.getElementById("#carrito");
-    carrito.innerHTML += `<p>${nombreProducto} ${kilos} kg x ${precioProducto2}€/kg = ${total}€</p>`;
-    // precioTotal += total
-   // Calculamos el precio total
-   // Sumar el precio total al total acumulado
-// Sumamos el precio total al total acumulado
-totalCompra += parseFloat(total);  
+    productosCarrito.push({
+        nombre: nombreProducto,
+        kilos: kilos,
+        precio: precioProducto2,
+        total: total
+    });
 
-// Actualizamos el total en la sección de compra con innerHTML
+    // Actualizamos el total acumulado
+    totalCompra += parseFloat(total);
+    preuFinal.innerHTML = `${totalCompra.toFixed(2)}€`;
 
-preuFinal.innerHTML = `${totalCompra.toFixed(2)}€`;  // Muestra el total acumulado
+    // Actualizamos la vista del carrito
+    actualizarCarrito();
 }
 
 
+function actualizarCarrito() {
+    // Limpiamos el contenido actual del carrito
+    carrito.innerHTML = '';
+
+    // Recorremos la lista de productos en el carrito y los mostramos
+    productosCarrito.forEach((producto, index) => {
+        carrito.innerHTML += `
+            <p>
+                <span class="miSpan" onclick="eliminarProducto(${index})">❌</span>
+                ${producto.nombre} ${producto.kilos} kg x ${producto.precio}€/kg = ${producto.total}€
+            </p>
+        `;
+    });
+}
+
+function eliminarProducto(index) {
+   
+   // Restamos el total del producto eliminado de totalCompra
+   totalCompra -= parseFloat(productosCarrito[index].total);
+
+   // Eliminamos el producto del carrito
+   productosCarrito.splice(index, 1);
+
+   // Actualizamos la vista con el nuevo total
+   preuFinal.innerHTML = `${totalCompra.toFixed(2)}€`;
+
+   // Volvemos a actualizar el carrito
+   actualizarCarrito();
+}
