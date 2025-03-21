@@ -171,6 +171,46 @@ function mensajeEj3(id, color, floracion, stock) {
 // Hacer un formulario para obtener una flor por su nombre.
 // Se mostrará el resultado en #ejercicio4
 
+// Obtener los elementos del DOM
+const botonBuscarFlor = document.getElementById("buscar-flor");
+const inputNombreFlor = document.getElementById("nombre-flor");
+const divEjercicio4 = document.getElementById("ejercicio4");
+
+// Evento para buscar una flor al hacer clic en el botón
+botonBuscarFlor.addEventListener("click", () => {
+  // Obtener el nombre de la flor ingresado por el usuario
+  const nombreFlor = inputNombreFlor.value.trim().toLowerCase();
+
+// Variable para almacenar la flor encontrada
+let floresEncontradas = [];
+
+
+// Buscar la flor en el array usando un bucle for
+for (let i = 0; i < flores.length; i++) {
+  if (flores[i].nombre.toLowerCase() == nombreFlor) {
+    floresEncontradas.push(flores[i]); // Si la flor se encuentra, la asignamos a florEncontrada
+    // Salimos del bucle si encontramos la flor
+  }
+}
+// Mostrar el resultado
+if (floresEncontradas.length > 0) {
+  // Si se encuentran flores, mostramos sus detalles
+  let html = "<ul>"; // Usamos una lista para mostrar las flores
+
+  floresEncontradas.forEach(flor => {
+    html += `<li>Flor: ${flor.nombre}, de color ${flor.color}, florece en ${flor.floracion} y ${flor.stock ? "tenemos stock" : "no hay stock"}</li>`;
+  });
+
+  html += "</ul>";
+  divEjercicio4.innerHTML = html;
+} else {
+  // Si no se encuentra ninguna flor, mostramos un mensaje
+  divEjercicio4.innerHTML = "<p>No se encontró ninguna flor con ese nombre.</p>";
+}
+});
+
+
+
 
 // ==============================================================================
 // EJERCICIO 5
