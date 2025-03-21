@@ -28,22 +28,25 @@ flores.sort((a, b) => {
 // }
 // Seleccionamos el div donde se mostrará la lista
 
-const divEjercicio1 = document.getElementById("ejercicio1");
+function mostrarFlores(flores) {
+  const divEjercicio = document.getElementById("ejercicio1");
 
-// Creamos la lista en una variable
-let listaHTML = "<ul>";
+  // Creamos la lista en una variable
+  let listaHTML = "<ul>";
 
-// Bucle para recorrer el array y generar los elementos de la lista
-for (let i = 0; i < flores.length; i++) {
-  // const flor = flores[i];
-  listaHTML += `<li>Flor: ${flores[i].nombre}, de color ${flores[i].color}, florece en ${flores[i].floracion} y ${flores[i].stock ? "tenemos stock" : "no hay stock"}</li>`;
+  // Bucle para recorrer el array y generar los elementos de la lista
+  for (let i = 0; i < flores.length; i++) {
+    listaHTML += `<li>Flor: ${flores[i].nombre}, de color ${flores[i].color}, florece en ${flores[i].floracion} y ${flores[i].stock ? "tenemos stock" : "no hay stock"}</li>`;
+  }
+
+  listaHTML += "</ul>";
+
+  // Insertamos el HTML en el div
+  divEjercicio.innerHTML = listaHTML;
 }
 
-listaHTML += "</ul>";
-
-// Insertamos el HTML en el div
-divEjercicio1.innerHTML = listaHTML;
-
+// Llamamos a la función pasándole el array de flores
+mostrarFlores(flores);
 
 
 // ==============================================================================
@@ -53,26 +56,50 @@ divEjercicio1.innerHTML = listaHTML;
 // Flor: rosa, de color blanco, florece en verano y tenemos stock
 // Se mostrará el resultado en #ejercicio2
 
-const divEjercicio2 = document.getElementById("ejercicio2");
+// const divEjercicio2 = document.getElementById("ejercicio2");
 
-let listaHTML2 = "<ul>";
 
-for (let i = 0; i < flores.length; i++) {
+// let listaHTML2 = "<ul>";
+
+// for (let i = 0; i < flores.length; i++) {
   
-  if (flores[i].color == "blanco" &&  flores[i].floracion == "verano")
+  // if (flores[i].color == "blanco" &&  flores[i].floracion == "verano")
 
-  {
-    listaHTML2 += `<li>Flor: ${flores[i].nombre}, de color ${flores[i].color}, florece en ${flores[i].floracion} y ${flores[i].stock ? "tenemos stock" : "no hay stock"}</li>`;
+  // {
+  //   listaHTML2 += `<li>Flor: ${flores[i].nombre}, de color ${flores[i].color}, florece en ${flores[i].floracion} y ${flores[i].stock ? "tenemos stock" : "no hay stock"}</li>`;
+  // }
+  
+// }
+
+// listaHTML2 += "</ul>";
+
+// divEjercicio2.innerHTML = listaHTML2;
+
+function mostrarFloresblancas(flores) {
+  const divEjercicio = document.getElementById("ejercicio2");
+
+  // Creamos la lista en una variable
+  let listaHTML = "<ul>";
+
+  // Bucle para recorrer el array y generar los elementos de la lista
+  for (let i = 0; i < flores.length; i++) {
+
+    if (flores[i].color == "blanco" &&  flores[i].floracion == "verano")
+    {
+      listaHTML += `<li>Flor: ${flores[i].nombre}, de color ${flores[i].color}, florece en ${flores[i].floracion} y ${flores[i].stock ? "tenemos stock" : "no hay stock"}</li>`;
+    }
+    
   }
-  
+
+  listaHTML += "</ul>";
+
+  // Insertamos el HTML en el div
+  divEjercicio.innerHTML = listaHTML;
 }
 
-listaHTML2 += "</ul>";
+// Llamamos a la función pasándole el array de flores
+mostrarFloresblancas(flores);
 
-
-// Insertamos el HTML en el div
-
-divEjercicio2.innerHTML = listaHTML2;
 
 // ==============================================================================
 // EJERCICIO 3
@@ -83,6 +110,59 @@ divEjercicio2.innerHTML = listaHTML2;
 // Si no hay ninguna flor que cumpla las condiciones, se mostrará este mensaje:
 // "No hay flor que cumpla las condiciones"
 // Se mostrará el resultado en #ejercicio3
+// const color = document.querySelector('input[name="color"]:checked').value;
+// const floracion = document.querySelector('input[name="floracion"]:checked').value;
+// const stock = document.querySelector('input[name="stock"]:checked').value; // Convertimos a booleano
+
+
+const ejercicio3 = document.getElementById("ejercicio3");
+
+const formEj3 = document.forms["formEj3"];
+const color = formEj3.color.value;
+const floracion = formEj3.floracion.value;
+const stock = formEj3["stock"].value;
+// console.log(color, floracion, stock);
+
+mensajeEj3(ejercicio3, color, floracion, stock);
+
+formEj3.addEventListener("change", () => {
+  const color = formEj3.color.value;
+  const floracion = formEj3.floracion.value;
+  const stock = formEj3["stock"].value;
+
+  // console.log(typeof stock);
+  mensajeEj3(ejercicio3, color, floracion, stock);
+});
+
+function mensajeEj3(id, color, floracion, stock) {
+  let html = "<ul>";
+  let contadorFlores = 0;
+
+  flores.forEach((flor) => {
+    if (!flor.stock) {
+      textoStock = "no";
+    }
+
+    if (
+      flor.color == color &&
+      flor.floracion == floracion &&
+      String(flor.stock) == stock
+    ) {
+      html += `<li>Flor : ${flor.nombre}, de color ${flor.color}, florece en ${flor.floracion} y ${textoStock} tenemos stock.`;
+      contadorFlores++;
+    }
+  });
+
+  html += "</ul>";
+
+  // solución 1
+  // if (html.length == 9) html = '<p>No hay flor que cumpla las condiciones</p>'
+  if (contadorFlores == 0)
+    html = "<p>No hay flor que cumpla las condiciones</p>";
+
+  id.innerHTML = html;
+}
+
 
 
 // ==============================================================================
