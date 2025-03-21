@@ -13,6 +13,7 @@ let num3
 //clg es el atajo de teclado
 
 console.log(typeof num3);
+
 num3 = 2.5
 console.log(typeof num3);
 
