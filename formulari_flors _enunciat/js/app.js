@@ -75,6 +75,9 @@ mostrarFlores(flores);
 
 // divEjercicio2.innerHTML = listaHTML2;
 
+
+
+
 function mostrarFloresblancas(flores) {
   const divEjercicio = document.getElementById("ejercicio2");
 
