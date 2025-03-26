@@ -12,7 +12,7 @@
     <div id="logo">
     <img src="img/logo.png"  style="border-radius: 1000px;">
     </div>
-    <p>Introducir tarea y definir estado</p>
+    <p><h1>Introducir tarea y definir estado</h></p>
     <input type="text" id="taskInput">
 <select id="taskStatus">
   <option value="pendiente">Pendiente</option>
@@ -24,12 +24,19 @@
 <div class="zonas-container">
     <div id="pendiente" class="zonas">
         <h2>Pendiente</h2>
+        <button class="move-right" onclick="moveTask('pendiente', 'ejecucion')">➡️</button> <!-- Flecha derecha -->
+        <button class="move-down" onclick="moveTask('pendiente', 'eliminadas')">⬇️</button> <!-- Flecha abajo -->
     </div>
     <div id="ejecucion" class="zonas">
         <h2>En ejecución</h2>
+        <button class="move-left" onclick="moveTask('ejecucion', 'pendiente')">⬅️</button> <!-- Flecha izquierda -->
+        <button class="move-right" onclick="moveTask('ejecucion', 'realizada')">➡️</button> <!-- Flecha derecha -->
+        <button class="move-down" onclick="moveTask('ejecucion', 'eliminadas')">⬇️</button> <!-- Flecha abajo -->
     </div>
     <div id="realizada" class="zonas">
         <h2>Realizada</h2>
+        <button class="move-left" onclick="moveTask('realizada', 'ejecucion')">⬅️</button> <!-- Flecha izquierda -->
+        <button class="move-down" onclick="moveTask('realizada', 'eliminadas')">⬇️</button> <!-- Flecha abajo -->
     </div>
 </div>
 

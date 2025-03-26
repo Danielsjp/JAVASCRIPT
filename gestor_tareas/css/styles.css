@@ -15,9 +15,6 @@ p {
 }
 
 
-
-
-
 #logo {
     width: 100%;
     height: 200px; /* Altura del div */
@@ -29,7 +26,9 @@ p {
     background: radial-gradient(circle, #ccc, #999); /* Fondo gris claro a gris oscuro */
     border-radius: 50px; /* Bordes redondeados */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+    border-bottom: 4px solid blue; /* Línea azul en la parte inferior */
 }
+
 
 /* Contenedor para el input, select y botón en una sola línea */
 .task-input-container {
@@ -214,4 +213,25 @@ h2 {
 /* Color para el botón de eliminar */
 .delete-btn {
     color: red;
+}
+
+/* Estilo para los botones de flechas */
+.zonas button {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.zonas button:hover {
+    color: #007bff;  /* Cambia el color de la flecha cuando pasa el ratón */
+}
+
+/* Añadir un poco de espacio alrededor de las flechas */
+.zonas button.move-left,
+.zonas button.move-right,
+.zonas button.move-down {
+    font-size: 24px;
+    margin-top: 10px;
 }
