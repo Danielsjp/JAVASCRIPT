@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My TO-DO APP</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <h1>My TO-DO APP</h1>
+    <p>Introducir tarea y definir estado</p>
+    <input type="text" id="taskInput">
+<select id="taskStatus">
+  <option value="pendiente">Pendiente</option>
+  <option value="ejecucion">En ejecución</option>
+  <option value="realizada">Realizada</option>
+</select>
+<button onclick="addTask()">Añadir tarea</button>
+
+<h2>Pendiente</h2>
+<div id="pendiente"></div>
+
+<h2>En ejecución</h2>
+<div id="ejecucion"></div>
+
+<h2>Realizada</h2>
+<div id="realizada"></div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
