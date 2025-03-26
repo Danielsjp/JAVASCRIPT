@@ -14,22 +14,73 @@ p {
     margin-bottom: 10px;
 }
 
-input, select, button {
+/* El contenedor para el input, select y botón en una sola línea */
+.task-input-container {
+    display: flex;
+    align-items: center;
+    border: 2px solid black; /* Borde negro */
+    border-radius: 20px;
+    overflow: hidden;
+    width: 70%; /* Hace que ocupe toda la línea */
+    margin: 5px 0;
+    
+}
+
+
+#taskInput {
     padding: 8px;
-    margin: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    width: 60%; /* Proporciona espacio para el input */
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-color: black;
+    text-align: right;
+  
 }
 
-button {
-    background-color: #007bff;
-    color: white;
+/* Estilo del select */
+#taskStatus {
+    padding: 8px;
+    /* Quita el borde del select */
+    
+    background: white;
     cursor: pointer;
-    border: none;
+    width: 30%; /* Proporciona espacio para el select */
+    border-color: dark;
+}
+/* 
+creo el estilo para la clase addbutton que es el boton principal */
+
+.add_button {
+    color: blue;
+    background-color: #f8f8f8; /* Color de fondo */
+    border: 2px solid blue; /* Borde rojo */
+    padding: 10px 20px;
+    cursor: pointer;
+    border-top-right-radius: 15px; /* Redondea solo la esquina superior derecha */
+    border-bottom-right-radius: 15px; /* Redondea solo la esquina inferior derecha */
+    border-top-left-radius: 0; /* No redondea la esquina superior izquierda */
+    border-bottom-left-radius: 0; /* No redondea la esquina inferior izquierda */
 }
 
-button:hover {
-    background-color: #0056b3;
+.add_button:hover {
+    background-color: #f1f1f1; /* Color de fondo cuando pasa el mouse */
+}
+
+
+/* Estilo del botón (gris) */
+.add-task-btn {
+    padding: 8px 15px;
+    background-color: darkblue; /* Gris */
+    color: white;
+    /* Quita el borde del botón */
+    cursor: pointer;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 10%; /* Proporciona espacio para el botón */
+}
+
+.add-task-btn:hover {
+    background-color: #5a6268; /* Gris más oscuro al pasar el mouse */
 }
 
 .task-container {
@@ -70,3 +121,43 @@ h2 {
     padding-bottom: 5px;
     margin-top: 20px;
 }
+
+.task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f9f9f9;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Alinea el texto a la izquierda y permite que ocupe el espacio disponible */
+.task span {
+    flex-grow: 1;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Estiliza los botones y los alinea juntos */
+.task button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+.task button:hover {
+    transform: scale(2.1);
+}
+
+/* Color para el botón de eliminar */
+.delete-btn {
+    color: red;
+}
+
+
