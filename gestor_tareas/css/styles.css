@@ -14,7 +14,24 @@ p {
     margin-bottom: 10px;
 }
 
-/* El contenedor para el input, select y botón en una sola línea */
+
+
+
+
+#logo {
+    width: 100%;
+    height: 200px; /* Altura del div */
+    background-color: #ccc; /* Fondo gris */
+    display: flex;
+    justify-content: center; /* Centra la imagen horizontalmente */
+    align-items: center; /* Centra la imagen verticalmente */
+    margin-bottom: 20px; /* Espacio debajo del logo */
+    background: radial-gradient(circle, #ccc, #999); /* Fondo gris claro a gris oscuro */
+    border-radius: 50px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+}
+
+/* Contenedor para el input, select y botón en una sola línea */
 .task-input-container {
     display: flex;
     align-items: center;
@@ -23,9 +40,7 @@ p {
     overflow: hidden;
     width: 70%; /* Hace que ocupe toda la línea */
     margin: 5px 0;
-    
 }
-
 
 #taskInput {
     padding: 8px;
@@ -34,26 +49,22 @@ p {
     border-bottom-left-radius: 20px;
     border-color: black;
     text-align: right;
-  
 }
 
 /* Estilo del select */
 #taskStatus {
     padding: 8px;
-    /* Quita el borde del select */
-    
     background: white;
     cursor: pointer;
     width: 30%; /* Proporciona espacio para el select */
     border-color: dark;
 }
-/* 
-creo el estilo para la clase addbutton que es el boton principal */
 
+/* Estilo del botón de añadir tarea */
 .add_button {
     color: blue;
     background-color: #f8f8f8; /* Color de fondo */
-    border: 2px solid blue; /* Borde rojo */
+    border: 2px solid blue; /* Borde azul */
     padding: 10px 20px;
     cursor: pointer;
     border-top-right-radius: 15px; /* Redondea solo la esquina superior derecha */
@@ -66,13 +77,11 @@ creo el estilo para la clase addbutton que es el boton principal */
     background-color: #f1f1f1; /* Color de fondo cuando pasa el mouse */
 }
 
-
-/* Estilo del botón (gris) */
+/* Estilo del botón gris */
 .add-task-btn {
     padding: 8px 15px;
     background-color: darkblue; /* Gris */
     color: white;
-    /* Quita el borde del botón */
     cursor: pointer;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -83,12 +92,14 @@ creo el estilo para la clase addbutton que es el boton principal */
     background-color: #5a6268; /* Gris más oscuro al pasar el mouse */
 }
 
+/* Estilo del contenedor de tareas */
 .task-container {
     max-width: 500px;
     margin: 20px auto;
     text-align: left;
 }
 
+/* Estilo para cada tarea */
 .task {
     display: flex;
     justify-content: space-between;
@@ -100,59 +111,25 @@ creo el estilo para la clase addbutton que es el boton principal */
     border-radius: 5px;
 }
 
-.task select {
-    margin-left: 10px;
-}
-
-.task button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.task button:hover {
-    color: red;
-}
-
-h2 {
-    font-size: 18px;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 5px;
-    margin-top: 20px;
-}
-
-.task {
+/* Alineación de los botones a la derecha */
+.task div {
+    margin-left: auto; /* Esto empuja los botones hacia la derecha */
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #f9f9f9;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Alinea el texto a la izquierda y permite que ocupe el espacio disponible */
-.task span {
-    flex-grow: 1;
-    text-align: left;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* Estiliza los botones y los alinea juntos */
+/* Estilo de los botones de acción */
 .task button {
     background: none;
     border: none;
     cursor: pointer;
     font-size: 18px;
-    margin-left: 5px;
+    margin-left: 5px; /* Asegura que no haya un espacio de más entre los botones */
 }
 
 .task button:hover {
-    transform: scale(2.1);
+  
+    transform: scale(5.1); 
+    /* Puedes ajustar el tamaño del hover */
 }
 
 /* Color para el botón de eliminar */
@@ -160,4 +137,81 @@ h2 {
     color: red;
 }
 
+/* Contenedor para las zonas (pendiente, ejecución, realizada) */
+.zonas-container {
+    display: flex; /* Usamos flexbox para alinearlos horizontalmente */
+    justify-content: space-between; /* Espacio uniforme entre los divs */
+    gap: 20px; /* Espacio entre los divs */
+    margin-top: 20px;
+}
 
+/* Estilo común para cada div de zona */
+.zonas {
+    width: 30%; /* El 30% del contenedor para cada div */
+    min-height: 200px;
+    padding: 15px;
+    border-radius: 8px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde gris claro */
+}
+
+/* Estilo para el div pendiente */
+#pendiente {
+    background-color: #ffcccb; /* Fondo color salmon suave */
+}
+
+/* Estilo para el div ejecución */
+#ejecucion {
+    background-color: #fff3b0; /* Fondo color amarillo limón suave */
+}
+
+/* Estilo para el div realizada */
+#realizada {
+    background-color: #b7e4c7; /* Fondo color verde suave */
+}
+
+/* Estilo para el título h2 (encabezados) */
+h2 {
+    font-size: 20px;
+    text-align: center;
+    margin: 10px 0;
+    color: #007bff; /* Color azul para los títulos */
+    border-bottom: 2px solid #007bff; /* Línea debajo del título */
+    padding-bottom: 5px;
+}
+
+/* Estilo para cada tarea */
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+/* Alineación de los botones a la derecha */
+.task .task-buttons {
+    margin-left: auto; /* Esto empuja los botones hacia la derecha */
+    display: flex;
+    gap: 5px; /* Espacio entre los botones */
+}
+
+/* Estilo de los botones de acción */
+.task button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Efecto hover para los botones */
+.task button:hover {
+    transform: scale(1.1); /* Puedes ajustar el tamaño del hover */
+}
+
+/* Color para el botón de eliminar */
+.delete-btn {
+    color: red;
+}

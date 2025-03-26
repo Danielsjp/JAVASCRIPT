@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My TO-DO APP</title>
     <link rel="stylesheet" href="css/styles.css">
+   
+    
 </head>
 <body>
-    <h1>My TO-DO APP</h1>
+    <div id="logo">
+    <img src="img/logo.png"  style="border-radius: 1000px;">
+    </div>
     <p>Introducir tarea y definir estado</p>
     <input type="text" id="taskInput">
 <select id="taskStatus">
@@ -17,15 +21,27 @@
 </select>
 <button onclick="addTask()" class="add_button">Añadir tarea</button>
 
-<h2>Pendiente</h2>
-<div id="pendiente"></div>
-
-<h2>En ejecución</h2>
-<div id="ejecucion"></div>
-
-<h2>Realizada</h2>
-<div id="realizada"></div>
+<div class="zonas-container">
+    <div id="pendiente" class="zonas">
+        <h2>Pendiente</h2>
     </div>
+    <div id="ejecucion" class="zonas">
+        <h2>En ejecución</h2>
+    </div>
+    <div id="realizada" class="zonas">
+        <h2>Realizada</h2>
+    </div>
+</div>
+
+    <div id="eliminadas" class="zona_eliminadas">
+        <h2>Eliminadas</h2>
+    </div>
+  
+    <div style="height: 50px;"></div>
+    <div id="task-info" style="text-align: center; margin-top: 20px; font-size: 16px; font-weight: bold; padding: 10px; background-color: #f1f1f1; border-radius: 10px;">
+        <!-- Aquí se mostrará la información al pasar el ratón sobre la tarea -->
+        
+      </div>
 
     <script src="js/script.js"></script>
 </body>

@@ -1,3 +1,9 @@
+// Variable global para llevar un registro del ID incremental de las tareas
+let taskIdCounter = 1;
+
+// Supongamos que el usuario activo es 'Daniel' (esto puede ser dinámico en una aplicación real)
+const activeUser = "Daniel";
+
 function addTask() {
   // Obtiene el texto de la tarea y elimina espacios en blanco
   const taskText = document.getElementById("taskInput").value.trim();
@@ -12,11 +18,48 @@ function addTask() {
   // Crea el div contenedor de la tarea
   const taskDiv = document.createElement("div");
   taskDiv.className = "task";
+  taskDiv.id = `task-${taskIdCounter}`;  // Asigna un ID único e incremental a la tarea
+
+  // Crea un span para mostrar el ID de la tarea
+  const idSpan = document.createElement("span");
+  idSpan.className = "task-id"; // Le damos una clase para poder estilizarlo
+  idSpan.textContent = `ID:${taskIdCounter}`; // Muestra el ID de la tarea
+  taskDiv.appendChild(idSpan);
 
   // Crea un span para mostrar el texto de la tarea
   const textSpan = document.createElement("span");
+  textSpan.className = "task-text"; // Le damos una clase para poder estilizarlo
   textSpan.textContent = taskText;
+  // agregamos un espacio entre id y text span
+  // creamos un espacio para separar el id del texto
+  // pero directamente sin crear otro span
+  const spaceSpan = document.createElement("span"); 
+  // Le damos un espacio en blanco
+  spaceSpan.textContent = " ";
+  // Le damos un espacio en blanco
+  spaceSpan.style.width = "10px"; // Espacio de 10px
+  spaceSpan.style.display = "inline-block"; // Para que se comporte como un bloque en línea
+  // Agregamos el espacio al div de tarea
+  taskDiv.appendChild(spaceSpan); // Agregamos el espacio al div de tarea
+  // Agregamos el texto de la tarea al div de tarea
   taskDiv.appendChild(textSpan);
+  // agregamos despues del texto la hora de creacion
+  
+
+
+
+  // Crea la fecha de creación
+  const createdAt = new Date();
+  const createdDate = createdAt.toLocaleString(); // Obtiene la fecha actual en formato legible
+
+  // Establecemos la fecha de creación y el usuario en los atributos del div tarea
+  taskDiv.setAttribute("data-created-at", createdDate);
+  taskDiv.setAttribute("data-user", activeUser);
+
+  // Crear un div para contener los botones y alinearlos a la derecha
+  const buttonsDiv = document.createElement("div");
+  buttonsDiv.className = "task-buttons"; // Clase para el contenedor de botones
+  taskDiv.appendChild(buttonsDiv);
 
   // Botón para marcar la tarea como realizada
   const doneBtn = document.createElement("button");
@@ -24,7 +67,7 @@ function addTask() {
   doneBtn.onclick = function() {
       document.getElementById("realizada").appendChild(taskDiv);
   };
-  taskDiv.appendChild(doneBtn);
+  buttonsDiv.appendChild(doneBtn);
 
   // Botón para mover la tarea a "en ejecución"
   const inProgressBtn = document.createElement("button");
@@ -32,7 +75,7 @@ function addTask() {
   inProgressBtn.onclick = function() {
       document.getElementById("ejecucion").appendChild(taskDiv);
   };
-  taskDiv.appendChild(inProgressBtn);
+  buttonsDiv.appendChild(inProgressBtn);
 
   // Botón para devolver la tarea a pendiente
   const undoBtn = document.createElement("button");
@@ -40,21 +83,50 @@ function addTask() {
   undoBtn.onclick = function() {
       document.getElementById("pendiente").appendChild(taskDiv);
   };
-  taskDiv.appendChild(undoBtn);
+  buttonsDiv.appendChild(undoBtn);
 
-  // Botón para borrar la tarea
+  // Botón para "eliminar" la tarea (moverla al div "eliminadas")
   const deleteBtn = document.createElement("button");
   deleteBtn.className = "delete-btn";
   deleteBtn.textContent = "🗑️";
   deleteBtn.onclick = function() {
-      taskDiv.remove();
+      document.getElementById("eliminadas").appendChild(taskDiv);  // Mueve la tarea al div "eliminadas"
   };
-  taskDiv.appendChild(deleteBtn);
+  buttonsDiv.appendChild(deleteBtn);
+
+  // Muestra la fecha de creación y el nombre del usuario al pasar el ratón
+  taskDiv.addEventListener("mouseenter", function() {
+      const createdAt = taskDiv.getAttribute("data-created-at");
+      const user = taskDiv.getAttribute("data-user");
+
+      // Actualizamos el div de información al final de la página
+      const infoDiv = document.getElementById("task-info");
+      infoDiv.textContent = `Creado por: ${user} el ${createdAt}`;
+  });
+
+  taskDiv.addEventListener("mouseleave", function() {
+      // Limpiamos la información al salir el ratón
+      const infoDiv = document.getElementById("task-info");
+      infoDiv.textContent = "Pasa el ratón por encima de la tarea para mas info"; // Mensaje predeterminado
+  });
 
   // Agrega la tarea al contenedor correspondiente
   document.getElementById(taskStatus).appendChild(taskDiv);
 
+  // Incrementa el contador de ID para la siguiente tarea
+  taskIdCounter++;
+
   // Limpia el campo de entrada
   document.getElementById("taskInput").value = "";
 }
+
+
+
+
+
+
+
+
+
+
 
