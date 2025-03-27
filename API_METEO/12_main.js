@@ -35,4 +35,5 @@ btnDatos.addEventListener("click", () => {
         .then(res => {
             console.table(res);
         }).catch(error => console.error("Error", error))
+        .finally( () => console.log("Finalizado"))
 })
