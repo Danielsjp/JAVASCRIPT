@@ -1,5 +1,11 @@
-// import key from "./"
-const apiKey = "7268048e6829b1df5dfcc5e82529ae22"; // Tu API Key
+import apiKey from "./config.js"
+
+// const apiKey = "7268048e6829b1df5dfcc5e82529ae22"; // Tu API Key
+
+// const apiKey = apiKey;
+
+console.log(apiKey);
+
 // const urlBase = "https://api.openweathermap.org/data/2.5/weather?units=metric&lang=it&q=";
 const urlBase = "https://api.openweathermap.org/data/2.5/weather?units=metric";
 
@@ -7,7 +13,7 @@ const form = document.getElementById("weatherForm");
 const inputCiudad = document.getElementById("cityInput");
 const idioma_1 = document.getElementById("languageSelect")
 const divDatos = document.getElementById("divDatos");
-icono = "https://www.imelcf.gob.pa/wp-content/plugins/location-weather/assets/images/icons/weather-icons/"
+const icono = "https://www.imelcf.gob.pa/wp-content/plugins/location-weather/assets/images/icons/weather-icons/"
 
 form.addEventListener("submit", (event) => {
     event.preventDefault(); // Evita que la página se recargue al enviar el formulario
