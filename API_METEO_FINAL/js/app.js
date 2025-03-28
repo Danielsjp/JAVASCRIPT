@@ -1,3 +1,4 @@
+import apiKey from "./config.js"
 const urlBase = "https://api.openweathermap.org/data/2.5/weather?units=metric";
 const urlforecast = "https://api.openweathermap.org/data/2.5/forecast?units=metric"
 
