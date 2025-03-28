@@ -1,15 +1,6 @@
-import apiKey from "./config.js"
-
-// const apiKey = "7268048e6829b1df5dfcc5e82529ae22"; // Tu API Key
-// const apiKey = apiKey;
-// console.log(apiKey);
-// https://api.openweathermap.org/data/2.5/weather?units=metric&lang=es&q=barcelona&appid=7268048e6829b1df5dfcc5e82529ae22
-
-// const urlBase = "https://api.openweathermap.org/data/2.5/weather?units=metric&lang=it&q=";
 const urlBase = "https://api.openweathermap.org/data/2.5/weather?units=metric";
-// const urlforecast = "https://api.openweathermap.org/data/2.5/forecast?q=Barcelona,ES&appid=7268048e6829b1df5dfcc5e82529ae22&units=metric&lang=es"
 const urlforecast = "https://api.openweathermap.org/data/2.5/forecast?units=metric"
-// https://api.openweathermap.org/data/2.5/forecast?units=metric&lang=es&q=Barcelona&appid=7268048e6829b1df5dfcc5e82529ae22
+
 
 const form = document.getElementById("weatherForm");
 const inputCiudad = document.getElementById("cityInput");
