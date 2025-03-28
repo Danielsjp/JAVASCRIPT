@@ -235,3 +235,34 @@ h2 {
     font-size: 24px;
     margin-top: 10px;
 }
+
+#clearEliminadas {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #ff4d4d;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#clearEliminadas:hover {
+    background-color: #e60000;
+}
+
+.priority-select {
+    margin-left: 10px;
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    cursor: pointer;
+}
+
+.priority-select:hover {
+    background-color: #e6e6e6;
+}
