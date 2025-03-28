@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-principal {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+    background-color: aquamarine;
+  }
+
+  /* Estilo para el contenedor de la previsión */
+#divPrevision {
+    display: flex;               /* Usamos flexbox */
+    flex-wrap: wrap;             /* Permite que los elementos se ajusten en varias filas si no caben */
+    justify-content: space-around; /* Espacio entre los elementos */
+    gap: 20px;                   /* Espacio entre los elementos */
+    margin-top: 20px;            /* Margen superior */
+}
+
+/* Estilo para cada bloque de previsión */
+.prevision-dia {
+    background-color: #f0f0f0;  /* Fondo claro */
+    padding: 15px;               /* Espaciado interno */
+    border-radius: 10px;         /* Bordes redondeados */
+    width: 200px;                /* Ancho fijo para cada previsión */
+    text-align: center;          /* Centrado del texto */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Estilo para cada bloque de previsión con colores de fondo */
+.prevision-dia:nth-child(1) {
+    background-color: #ccf0f1; /* Rojo claro */
+}
+
+.prevision-dia:nth-child(2) {
+    background-color: #ccf0f1; /* Azul claro */
+}
+
+.prevision-dia:nth-child(3) {
+    background-color: #ccf0f1; /* Verde claro */
+}
+
+.prevision-dia:nth-child(4) {
+    background-color: #ccf0f1; /* Naranja claro */
+}
+
+.prevision-dia:nth-child(5) {
+    background-color: #ccf0f1; /* Morado claro */
+}
+
+.prevision-dia:nth-child(6) {
+    background-color: #ccf0f1; /* Morado claro */
+}
+
+/* Estilo para las imágenes de los iconos */
+.prevision-dia img {
+    width: 80px;                 /* Ajusta el tamaño del icono */
+    height: 80px;
+    margin-bottom: 10px;         /* Espacio entre el icono y el texto */
+}
+
+/* Estilo para los textos dentro de cada previsión */
+.prevision-dia p {
+    margin: 5px 0;               /* Espacio entre los párrafos */
+    font-size: 14px;             /* Tamaño de fuente */
+}
+
+/* Estilo para el título principal de la previsión */
+#divPrevision h3 {
+    text-align: center;          /* Centra el título */
+    margin-bottom: 20px;         /* Espacio debajo del título */
+    font-size: 18px;             /* Tamaño de fuente del título */
+    color: #333;                 /* Color del texto */
+}
+
+.header {
+    background-color: #0077b6;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.footer {
+    background-color: #0077b6;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.main-content {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.weather-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.weather-form input, .weather-form select, .weather-form button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.weather-form button {
+    background-color: #0077b6;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.weather-form button:hover {
+    background-color: #005f8a;
+}
+
+.weather-data {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+.forecast-section h3 {
+    font-size: 20px;
+    color: #0077b6;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
