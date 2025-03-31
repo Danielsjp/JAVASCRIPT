@@ -1,4 +1,4 @@
-import apiKey from "./config.js"
+import { apiKey, apiContami } from './config.js';
 const urlBase = "https://api.openweathermap.org/data/2.5/weather?units=metric";
 const urlforecast = "https://api.openweathermap.org/data/2.5/forecast?units=metric"
 
@@ -8,6 +8,7 @@ const inputCiudad = document.getElementById("cityInput");
 const idioma_1 = document.getElementById("languageSelect")
 const divDatos = document.getElementById("divDatos");
 const divPrevision = document.getElementById("divPrevision");
+const divContaminacion = document.getElementById("divContaminacion"); // Add a div in your HTML for AQI display
 const icono = "https://www.imelcf.gob.pa/wp-content/plugins/location-weather/assets/images/icons/weather-icons/"
 
 
@@ -25,6 +26,7 @@ form.addEventListener("submit", (event) => {
 
     obtenerClima(ciudad, idioma);
     obtenerPrevision(ciudad, idioma);
+    obtenerContaminacion(ciudad);
 });
 
 function traducirACatalan() {
@@ -188,4 +190,44 @@ function cambiarFondo(icon) {
 
     // Cambiar el color de fondo según el icono
     body.style.backgroundColor = colores[icon] || "#FFFFFF"; // Color por defecto: blanco
+}
+
+function obtenerContaminacion(ciudad) {
+    const urlContaminacion = `http://api.waqi.info/feed/${ciudad}/?token=${apiContami}`;
+
+    fetch(urlContaminacion)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status !== "ok") {
+                divContaminacion.innerHTML = `<p>Error: No se pudo obtener el nivel de contaminación</p>`;
+                return;
+            }
+
+            mostrarContaminacion(data.data.aqi);
+        })
+        .catch(error => {
+            divContaminacion.innerHTML = `<p>Error al obtener los datos de contaminación</p>`;
+            console.error("Error en la solicitud:", error);
+        });
+}
+
+function mostrarContaminacion(aqi) {
+    let emoji = "";
+    let descripcion = "";
+
+    if (aqi <= 50) {
+        emoji = "🟢";
+        descripcion = "Bajo";
+    } else if (aqi <= 100) {
+        emoji = "🟡";
+        descripcion = "Moderado";
+    } else {
+        emoji = "🔴";
+        descripcion = "Alto";
+    }
+
+    divContaminacion.innerHTML = `
+        <h3>Nivel de Contaminación:</h3>
+        <p>AQI: ${aqi} ${emoji} (${descripcion})</p>
+    `;
 }
