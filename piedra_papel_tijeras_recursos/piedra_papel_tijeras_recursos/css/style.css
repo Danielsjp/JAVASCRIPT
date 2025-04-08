@@ -23,9 +23,10 @@ body {
     align-items: center;
     background-repeat: no-repeat;
     background-position: center;
-    background-position-y: 200px;
+    background-position-y: 150px;
     background-image: url(../img/Piedra-papel-o-tijera_350x150.jpg);
     height: 100vh;
+    padding: 2%;
 }
 
 header, main {
@@ -35,6 +36,33 @@ header, main {
 main {
     max-width: var(--width);
     margin:1rem auto;
+    border: 5px solid #000;
+    border-radius: 10px;
+    padding: 1rem;
+
+    div {
+        display: flex;
+        justify-content: space-between;
+    }
+    label {
+        font-size: 4rem;
+    }
+
+    input {
+
+        display: none;
+    }
+
+    input:checked + label{
+        border: 3px solid orange;
+        border-radius: 10px;
+        font-size: 5rem;
+    }
+
+    button {
+        
+
+    }
 }
 
 header {
@@ -42,10 +70,14 @@ header {
     padding: 1rem;
     border: 5px solid #000;
     border-radius: 10px;
-
     button {
-
         padding: .5rem 1rem;
         border-radius: 10px;
+        background-color: yellow;
+    }
+
+    p {
+
+
     }
 }
