@@ -23,7 +23,7 @@ body {
     align-items: center;
     background-repeat: no-repeat;
     background-position: center;
-    background-position-y: 150px;
+    background-position-y: 100px;
     background-image: url(../img/Piedra-papel-o-tijera_350x150.jpg);
     height: 100vh;
     padding: 2%;
@@ -84,7 +84,17 @@ header {
     }
 
     p {
-
+        font-size: 1.5rem;
 
     }
+}
+
+#respuesta {
+    padding: 1rem 2rem 1rem;
+}
+
+#imagen {
+
+    width: 100%;
+    display: block;
 }
