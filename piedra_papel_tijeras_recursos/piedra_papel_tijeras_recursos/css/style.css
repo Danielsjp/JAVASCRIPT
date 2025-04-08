@@ -60,9 +60,16 @@ main {
     }
 
     button {
+        padding: .5rem 1rem;
+        border-radius: 10px;
+        background-color: yellow;
         
-
     }
+}
+
+form {
+
+    text-align: center;
 }
 
 header {
