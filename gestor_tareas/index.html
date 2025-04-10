@@ -3,54 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My TO-DO APP</title>
+    <title>Python Scape</title>
     <link rel="stylesheet" href="css/styles.css">
-   
-    
+    <script defer src="js/scripts.js"></script>
 </head>
 <body>
-    <div id="logo">
-    <img src="img/logo.png"  style="border-radius: 1000px;">
-    </div>
-    <p><h1>Introducir tarea y definir estado</h></p>
-    <input type="text" id="taskInput">
-<select id="taskStatus">
-  <option value="pendiente">Pendiente</option>
-  <option value="ejecucion">En ejecución</option>
-  <option value="realizada">Realizada</option>
-</select>
-<button onclick="addTask()" class="add_button">Añadir tarea</button>
+    <div class="container">
+        <div class="header">
+            <img src="img/logo.png" alt="Logo de Python Scape" class="logo">
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Acerca de</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
 
-<div class="zonas-container">
-    <div id="pendiente" class="zonas">
-        <h2>Pendiente</h2>
-        <button class="move-right" onclick="moveTask('pendiente', 'ejecucion')">➡️</button> <!-- Flecha derecha -->
-        <button class="move-down" onclick="moveTask('pendiente', 'eliminadas')">⬇️</button> <!-- Flecha abajo -->
-    </div>
-    <div id="ejecucion" class="zonas">
-        <h2>En ejecución</h2>
-        <button class="move-left" onclick="moveTask('ejecucion', 'pendiente')">⬅️</button> <!-- Flecha izquierda -->
-        <button class="move-right" onclick="moveTask('ejecucion', 'realizada')">➡️</button> <!-- Flecha derecha -->
-        <button class="move-down" onclick="moveTask('ejecucion', 'eliminadas')">⬇️</button> <!-- Flecha abajo -->
-    </div>
-    <div id="realizada" class="zonas">
-        <h2>Realizada</h2>
-        <button class="move-left" onclick="moveTask('realizada', 'ejecucion')">⬅️</button> <!-- Flecha izquierda -->
-        <button class="move-down" onclick="moveTask('realizada', 'eliminadas')">⬇️</button> <!-- Flecha abajo -->
-    </div>
-</div>
-
-    <div id="eliminadas" class="zona_eliminadas">
-        <h2>Eliminadas</h2>
-        <button id="clearEliminadas" onclick="clearEliminadas()">Limpiar Eliminadas</button>
-    </div>
-  
-    <div style="height: 50px;"></div>
-    <div id="task-info" style="text-align: center; margin-top: 20px; font-size: 16px; font-weight: bold; padding: 10px; background-color: #f1f1f1; border-radius: 10px;">
-        <!-- Aquí se mostrará la información al pasar el ratón sobre la tarea -->
-        
-      </div>
-
-    <script src="js/script.js"></script>
+        <div class="main">
+            <div class="section">
+                <h1>Python Scape</h1>
+                <p>Bienvenido a un juego de supervivencia educativo</p>
+            </div>
+        </div>
+    <footer>
+        <p>&copy; 2025 Python Scape. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
